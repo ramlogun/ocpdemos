@@ -16,13 +16,13 @@ var mongoUser = process.env.MONGODB_USER;
 var mongoPass = process.env.MONGODB_PASSWORD;
 var mongoDb = process.env.MONGODB_DATABASE;
 
-//mysql configuration
+/*mysql configuration
 var mysqlHost = process.env.MYSQL_SERVICE_HOST || 'localhost';
 var mysqlPort = process.env.MYSQL_SERVICE_PORT || 3306;
 var mysqlUser = process.env.MYSQL_USER;
 var mysqlPass = process.env.MYSQL_PASSWORD;
 var mysqlDb = process.env.MYSQL_PASSWORD;
-
+*/
 //connection strings
 var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + mongoHost + ':' + mongoPort + '/' + mongoDb;
 var mysqlString = 'mysql://' + mysqlUser + ':' + mysqlPass + '@' + mysqlHost + ':' + mysqlPort + '/' + mysqlDb;
@@ -40,11 +40,12 @@ var mongodb = require('mongodb');
 
 
 //connect to mysql
+/*
 var mysqlClient = mysql.createConnection(mysqlString);
 mysqlClient.connect(function(err){
   if (err) console.log(err);
 });
-
+*/
 
 // app is running!
 app.get('/', function(req, res) {
@@ -76,6 +77,7 @@ app.get('/mongo', function(req, res) {
 
 
 //MySQL is running!
+/*
 app.get('/mysql', function(req, res) {
     mysqlClient.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
         if (err) {
@@ -85,12 +87,12 @@ app.get('/mysql', function(req, res) {
         }
     });
 });
-
+*/
 
 app.listen(8080, ip);
 
 console.log('MongoDB running at ' + mongoString);
-console.log('MySQL running at ' + mysqlString);
+//console.log('MySQL running at ' + mysqlString);
 
 
 module.exports = app;
